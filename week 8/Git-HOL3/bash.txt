@@ -1,0 +1,23 @@
+git config user.name "manasvi"
+git config user.email "manasvitatireddy2004@gmail.com"
+
+git checkout master
+git pull origin master
+
+git branch GitNewBranch
+git checkout GitNewBranch
+
+echo "<!-- sample file -->" > sample.txt
+git add sample.txt
+git commit --author="manasvi <manasvitatireddy2004@gmail.com>" -m "Add sample.txt on GitNewBranch"
+
+git status
+git branch -a
+git diff master..GitNewBranch
+git difftool master..GitNewBranch
+
+git checkout master
+git merge --no-ff GitNewBranch -m "Merge GitNewBranch into master"
+
+git log --oneline --graph --decorate --all
+git branch -d GitNewBranch

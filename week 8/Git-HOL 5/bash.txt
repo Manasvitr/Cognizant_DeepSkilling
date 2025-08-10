@@ -1,0 +1,15 @@
+git config user.name "manasvi"
+git config user.email "manasvitatireddy2004@gmail.com"
+
+git checkout master
+git status
+git branch -a
+git pull origin master
+git push origin master
+
+git fetch origin
+git log origin/master --oneline -n 5
+
+git branch --merged master
+git branch -d <branchname>
+git push origin --delete <branchname>

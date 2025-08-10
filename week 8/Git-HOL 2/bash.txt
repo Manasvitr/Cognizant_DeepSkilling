@@ -1,0 +1,8 @@
+echo "*.log" > .gitignore
+echo "log/" >> .gitignore
+mkdir -p log
+echo "log entry" > app.log
+echo "some logs" > log/server.log
+git rm -r --cached *.log log || true
+git add .gitignore
+git commit -m "Add .gitignore to ignore .log files and log/ folder (Manasvi)"

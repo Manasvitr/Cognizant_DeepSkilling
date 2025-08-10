@@ -1,0 +1,36 @@
+git config user.name "manasvi"
+git config user.email "manasvitatireddy2004@gmail.com"
+
+git checkout master
+git status
+
+git checkout -b GitWork
+cat > hello.xml <<'EOF'
+<!-- Hello from branch: change A -->
+<greeting>Hello from branch GitWork</greeting>
+EOF
+git add hello.xml
+git commit --author="manasvi <manasvitatireddy2004@gmail.com>" -m "Add hello.xml on GitWork branch"
+
+git checkout master
+cat > hello.xml <<'EOF'
+<!-- Hello from master: change B -->
+<greeting>Hello from master</greeting>
+EOF
+git add hello.xml
+git commit --author="manasvi <manasvitatireddy2004@gmail.com>" -m "Add hello.xml on master with different content"
+
+git log --oneline --graph --decorate --all
+git diff master..GitWork
+
+git merge GitWork
+git mergetool
+git add hello.xml
+git commit --author="manasvi <manasvitatireddy2004@gmail.com>" -m "Resolve merge conflict for hello.xml"
+
+echo "*.orig" >> .gitignore
+git add .gitignore
+git commit --author="manasvi <manasvitatireddy2004@gmail.com>" -m "Ignore merge backup files"
+
+git branch -a
+git branch -d GitWork
